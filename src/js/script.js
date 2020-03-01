@@ -98,7 +98,7 @@
         event.preventDefault();
 
         /* toggle active class on element of thisProduct */
-        thisProduct.element.classList('active');
+        thisProduct.element.classList.toggle('active');
 
         /* find all active products */
         const activeProducts = document.querySelectorAll(select.all.menuProductsActive);
