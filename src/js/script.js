@@ -249,12 +249,30 @@
     setValue(value) {
       const thisWidget = this;
 
-      const newValue = parseIn(value);
+      const newValue = parseInt(value);
 
       /* TODO add validation*/
 
       thisWidget.value = newValue;
-      thisWidget.inut.value = thisWidget.value;
+      thisWidget.input.value = thisWidget.value;
+    }
+
+    initActions(){
+      const thisWidget = this;
+
+      thisWidget.input.addEventListener('change', function() {
+        thisWidget.setValue(thisWidget.input.value);
+      });
+
+      thisWidget.linkDecrease.addEventListener('click', function(event) {
+        event.preventDefault();
+        thisWidget.setValue(thisWidget.value - 1);
+      });
+
+      thisWidget.linkIncrease.addEventListener('click', function(event){
+        event.preventDefault();
+        thisWidget.setValue(thisWidget.value + 1);
+      });
     }
   }
 
