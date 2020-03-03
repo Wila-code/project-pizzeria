@@ -231,18 +231,30 @@
       const thisWidget = this;
 
       thisWidget.getElements(element);
+      thisWidget.setValue(thisWidget.input.value);
 
       console.log('amountWidget:', thisWidget);
       console.log('constructor argument:', element);
     }
 
-    getElements(element){
+    getElements(element) {
     const thisWidget = this;
 
     thisWidget.element = element;
     thisWidget.input = thisWidget.element.querySelector(select.widgets.amount.input);
     thisWidget.linkDecrease = thisWidget.element.querySelector(select.widgets.amount.linkDecrease);
     thisWidget.linkIncrease = thisWidget.element.querySelector(select.widgets.amount.linkIncrease);
+    }
+
+    setValue(value) {
+      const thisWidget = this;
+
+      const newValue = parseIn(value);
+
+      /* TODO add validation*/
+
+      thisWidget.value = newValue;
+      thisWidget.inut.value = thisWidget.value;
     }
   }
 
