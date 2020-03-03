@@ -65,7 +65,7 @@
       thisProduct.initAccordion();
       console.log('Accordion works!');
       thisProduct.initOrderForm();
-      //thisProduct.initAmountWidget();
+      thisProduct.initAmountWidget();
       thisProduct.processOrder();
 
     }
@@ -95,6 +95,7 @@
       thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
       thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
       thisProduct.imageWrapper = thisProduct.element.querySelector(select.menuProduct.imageWrapper);
+      thisProduct.amountWidgetElem = thisProduct.element.querySelector(select.menuProduct.amountWidget);
     }
 
 
@@ -156,6 +157,14 @@
       console.log('initOrderForm:', thisProduct);
     }
 
+
+    initAmountWidget(){
+      const thisProduct = this;
+
+      thisProduct.amountWidget = new AmountWidget(thisProduct.amountWidgetElem);
+
+    }
+
     processOrder(){
       const thisProduct = this;
       console.log('processOrder:', thisProduct);
@@ -215,6 +224,25 @@
 
       /* set the contents of thisProduct.priceElem to be the value of variable price */
       thisProduct.priceElem.innerHTML = price;
+    }
+  }
+  class AmountWidget{
+    constructor(element){
+      const thisWidget = this;
+
+      thisWidget.getElements(element);
+
+      console.log('amountWidget:', thisWidget);
+      console.log('constructor argument:', element);
+    }
+
+    getElements(element){
+    const thisWidget = this;
+
+    thisWidget.element = element;
+    thisWidget.input = thisWidget.element.querySelector(select.widgets.amount.input);
+    thisWidget.linkDecrease = thisWidget.element.querySelector(select.widgets.amount.linkDecrease);
+    thisWidget.linkIncrease = thisWidget.element.querySelector(select.widgets.amount.linkIncrease);
     }
   }
 
