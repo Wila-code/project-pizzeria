@@ -94,6 +94,7 @@
       thisProduct.formInputs = thisProduct.form.querySelectorAll(select.all.formInputs);
       thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
       thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
+      thisProduct.imageWrapper = thisProduct.element.querySelector(select.menuProduct.imageWrapper);
     }
 
 
@@ -114,7 +115,7 @@
         /* toggle active class on element of thisProduct */
         thisProduct.element.classList.toggle('active');
 
-        
+
         const activeProduct = document.querySelector(select.all.menuProductsActive);
         if(activeProduct) activeProduct.classList.remove('active');
         thisProduct.element.classList.toggle('active');
@@ -192,6 +193,22 @@
           }
           /* END ELSE IF: if option is not selected and option is default */
           /* END LOOP: for each optionId in param.options */
+
+          //set const for elements
+          const images = thisProduct.imageWrapper.querySelectorAll('.' + paramId + '-' + optionId);
+          console.log('images', images);
+
+          //if option is selected add classNames.menuProduct.imageVisible
+          if (optionSelected){
+            for(let image of images){
+              image.classList.add(classNames.menuProduct.imageVisible);
+            }
+            //if option isn't selected remove classNames.menuProduct.imageVisible
+          } else {
+            for(let image of images){
+              image.classList.remove(classNames.menuProduct.imageVisible);
+            }
+          }
         }
       /* END LOOP: for each paramId in thisProduct.data.params */
       }
