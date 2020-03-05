@@ -231,13 +231,16 @@
       thisProduct.priceElem.innerHTML = price;
     }
   }
-  class AmountWidget{
+
+
+  class AmountWidget {
     constructor(element){
       const thisWidget = this;
 
       thisWidget.getElements(element);
       thisWidget.value = settings.amountWidget.defaultValue;
       thisWidget.setValue(thisWidget.input.value);
+      thisWidget.initActions();
 
       console.log('amountWidget:', thisWidget);
       console.log('constructor argument:', element);
@@ -268,7 +271,7 @@
       thisWidget.input.value = thisWidget.value;
     }
 
-    initActions(){
+    initActions() {
       const thisWidget = this;
 
       thisWidget.input.addEventListener('change', function() {
@@ -286,7 +289,7 @@
       });
     }
 
-    announce(){
+    announce() {
       const thisWidget = this;
 
       const event = new Event('updated');
