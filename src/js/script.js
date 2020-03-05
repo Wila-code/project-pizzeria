@@ -122,15 +122,15 @@
         thisProduct.element.classList.toggle('active');
 
         /* START LOOP: for each active product */
-      //  for(let activeProduct of activeProducts){
+        //  for(let activeProduct of activeProducts){
 
-          /* START: if the active product isn't the element of thisProduct */
-          //if(activeProduct != thisProduct.element){
-            /* remove class active for the active product */
-          //  activeProduct.classList.remove('active');
-            /* END: if the active product isn't the element of thisProduct */
+      /* START: if the active product isn't the element of thisProduct */
+      //if(activeProduct != thisProduct.element){
+      /* remove class active for the active product */
+      //  activeProduct.classList.remove('active');
+      /* END: if the active product isn't the element of thisProduct */
         //  }
-          /* END LOOP: for each active product */
+      /* END LOOP: for each active product */
         //}
         /* END: click event listener to trigger */
       });
@@ -165,7 +165,7 @@
 
       thisProduct.amountWidgetElem.addEventListener('updated', function(){
         thisProduct.processOrder();
-      })
+      });
     }
 
     processOrder(){
@@ -244,12 +244,12 @@
     }
 
     getElements(element) {
-    const thisWidget = this;
+      const thisWidget = this;
 
-    thisWidget.element = element;
-    thisWidget.input = thisWidget.element.querySelector(select.widgets.amount.input);
-    thisWidget.linkDecrease = thisWidget.element.querySelector(select.widgets.amount.linkDecrease);
-    thisWidget.linkIncrease = thisWidget.element.querySelector(select.widgets.amount.linkIncrease);
+      thisWidget.element = element;
+      thisWidget.input = thisWidget.element.querySelector(select.widgets.amount.input);
+      thisWidget.linkDecrease = thisWidget.element.querySelector(select.widgets.amount.linkDecrease);
+      thisWidget.linkIncrease = thisWidget.element.querySelector(select.widgets.amount.linkIncrease);
     }
 
     setValue(value) {
@@ -258,10 +258,12 @@
       const newValue = parseInt(value);
 
       /* TODO add validation*/
-      //block IF ???
 
-      thisWidget.value = newValue;
-      this.announce();
+      if (newValue >= settings.amountWidget.defaultMin  && newValue <= settings.amountWidget.defaultMax) {
+
+        thisWidget.value = newValue;
+        this.announce();
+      }
 
       thisWidget.input.value = thisWidget.value;
     }
