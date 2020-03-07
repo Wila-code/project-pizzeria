@@ -278,8 +278,8 @@
       /* set the contents of thisProduct.priceElem to be the value of variable price */
       thisProduct.priceElem.innerHTML = thisProduct.price;
 
-      console.log('zawarte', thisProduct.params)
-      }
+      console.log('zawarte', thisProduct.params);
+  }
 
     addToCart(){
       const thisProduct = this;
@@ -371,7 +371,7 @@
     getElements(element){
       const thisCart = this;
 
-      thisCart.dom = {}
+      thisCart.dom = {};
 
       thisCart.dom.wrapper = element;
 
@@ -392,7 +392,7 @@
 
       const generatedHTML = templates.cartProduct(menuProduct);
       const generatedDOM = utils.createDOMFromHTML(generatedHTML);
-      
+
       thisCart.dom.productList.appendChild(generatedDOM);
 
       console.log('adding product', menuProduct);
