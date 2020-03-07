@@ -279,7 +279,7 @@
       thisProduct.priceElem.innerHTML = thisProduct.price;
 
       console.log('zawarte', thisProduct.params);
-  }
+    }
 
     addToCart(){
       const thisProduct = this;
