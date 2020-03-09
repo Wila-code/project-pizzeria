@@ -402,6 +402,10 @@
         thisCart.update();
       })
 
+      thisCart.dom.productList.addEventListener('remove', function(){
+        thisCart.remove(event.detail.cartProduct);
+      })
+
     }
 
     add(menuProduct){
@@ -418,13 +422,6 @@
 
       thisCart.update();
 
-      /* renderinMenu() {
-      const thisProduct = this;
-      const generatedHTML = templates.menuProduct(thisProduct.data);
-      const menuContainer = document.querySelector(select.containerOf.menu);
-      thisProduct.element = utils.createDOMFromHTML(generatedHTML);
-      menuContainer.appendChild(thisProduct.element);
-    }*/
     }
 
     update(){
@@ -450,6 +447,22 @@
         }
       }
     }
+
+  /*  remove(cartProduct) {
+      const thisCart = this;
+
+      const index = thisCart.products.indexOf(cartProduct);  ????
+
+      //splice  EXAMPLE: const removedValues = categories.splice(indexOfFruits, 1); ????
+
+
+      //delate DOM
+      cartProduct.dom.wrapper.remove();
+
+      thisCart.update();
+
+    }
+    */
   }
 
   class CartProduct {
