@@ -400,11 +400,11 @@
 
       thisCart.dom.productList.addEventListener('updated', function(){
         thisCart.update();
-      })
+      });
 
       thisCart.dom.productList.addEventListener('remove', function(){
         thisCart.remove(event.detail.cartProduct);
-      })
+      });
 
     }
 
@@ -448,21 +448,16 @@
       }
     }
 
-  /*  remove(cartProduct) {
+
+    remove(cartProduct) {
       const thisCart = this;
 
-      const index = thisCart.products.indexOf(cartProduct);  ????
-
-      //splice  EXAMPLE: const removedValues = categories.splice(indexOfFruits, 1); ????
-
-
-      //delate DOM
+      const index = thisCart.products.indexOf(cartProduct);
+      thisCart.products.splice(index, 1);
       cartProduct.dom.wrapper.remove();
-
       thisCart.update();
-
     }
-    */
+
   }
 
   class CartProduct {
@@ -536,9 +531,7 @@
       thisCartProduct.dom.remove.addEventListener('click',function(){
         event.preventDefault();
       });
-      thisCartProduct.remove();
     }
-
   }
 
   const app = {
