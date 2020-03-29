@@ -3,7 +3,7 @@ import {select, classNames, templates, settings} from '../settings.js';
 import {utils} from '../utils.js';
 
 
-class Cart{
+class Cart {
   constructor(element){
     const thisCart = this;
 

@@ -109,8 +109,8 @@ export const settings = {
     defaultDeliveryFee: 20,
   },
   booking: {
-   tableIdAttribute: 'data-table',
- },
+    tableIdAttribute: 'data-table',
+  },
   // CODE ADDED END
   db: {
     url: '//localhost:3131',
