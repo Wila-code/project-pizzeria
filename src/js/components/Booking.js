@@ -9,6 +9,7 @@ class Booking {
     thisBooking.render(bookingWidget);
     thisBooking.initWidgets();
   }
+
   render(element){
     const thisBooking = this;
 
