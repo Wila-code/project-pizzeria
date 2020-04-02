@@ -1,43 +1,56 @@
-import {select, templates} from '../settings.js';
-import AmountWidget from './AmountWidget.js';
 
 class BaseWidget{
 
-    constructor(wrapperElement, initialValue){
+  constructor(wrapperElement, initialValue){
     const thisWidget = this;
     thisWidget.dom = {};
-    thisWidget.dom.wrapper=wrapperElement;
-    thisWidget.value = initialValue;
-    }
-}
-setValue(value) {
+    thisWidget.dom.wrapper = wrapperElement;
+    thisWidget.correctValue = initialValue;
+  }
+
+  get value(){
+    const thisWidget = this;
+
+    return thisWidget.correctValue;
+  }
+
+  set value(value){
     const thisWidget = this;
     const newValue = thisWidget.parseValue(value);
 
-    if (newValue != thisWidget.value && thisWidget.isValid(newValue)) {
-      thisWidget.value = newValue;
+    if (newValue != thisWidget.correctValue && thisWidget.isValid(newValue)) {
+      thisWidget.correctValue = newValue;
       thisWidget.announce();
     }
-      thisWidget.renderValue();
+    thisWidget.renderValue();
   }
-  parseValue(value){
+
+  setValue(value){
     const thisWidget = this;
+    thisWidget.value = value;
+  }
+
+  parseValue(value){
     return parseInt(value);
   }
+
   isValid(value){
-    const thisWidget = this;
-    return !isNaN(value)
+    return !isNaN(value);
   }
-  renderValue(value){
+
+  renderValue(){
     const thisWidget = this;
     thisWidget.dom.wrapper.innerHTML = thisWidget.value;
   }
-  announce() {
+
+  announce(){
     const thisWidget = this;
     const event = new CustomEvent('updated', {
       bubbles: true
     });
+
     thisWidget.dom.wrapper.dispatchEvent(event);
   }
+}
 
 export default BaseWidget;

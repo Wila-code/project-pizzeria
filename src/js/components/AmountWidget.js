@@ -21,34 +21,34 @@ class AmountWidget extends BaseWidget {
     //thisWidget.element = element;
     thisWidget.dom.input = thisWidget.dom.wrapper.querySelector(select.widgets.amount.input);
     thisWidget.dom.linkDecrease = thisWidget.dom.wrapper.querySelector(select.widgets.amount.linkDecrease);
-    thisWidget.dom.linkIncrease = thisWidget.dom.wrapper.querySelector(select.widgets.dom.linkIncrease);
+    thisWidget.dom.linkIncrease = thisWidget.dom.wrapper.querySelector(select.widgets.amount.linkIncrease);
   }
 
-  isValue(value){
-    const thisWidget = this;
+  isValid(value){
 
     return !isNaN(value)
     && value >= settings.amountWidget.defaultMin
-    && value <= settings.amountWidget.defaultMax
+    && value <= settings.amountWidget.defaultMax;
   }
-  renderValue(value){
+
+  renderValue(){
     const thisWidget = this;
-    thisWidget.input.value = thisWidget.value;
+    thisWidget.dom.input.value = thisWidget.value;
   }
 
   initActions() {
     const thisWidget = this;
 
-    thisWidget.input.addEventListener('change', function(){
-      thisWidget.setValue(thisWidget.input.value);
+    thisWidget.dom.input.addEventListener('change', function(){
+      thisWidget.setValue(thisWidget.dom.input.value);
     });
 
-    thisWidget.linkDecrease.addEventListener('click', function(event){
+    thisWidget.dom.linkDecrease.addEventListener('click', function(){
       event.preventDefault();
-      thisWidget.setValue(thisWidget.value - 1);
+      thisWidget.setValue(thisWidget.dom.value - 1);
     });
 
-    thisWidget.dom.linkIncrease.addEventListener('click', function(event){
+    thisWidget.dom.linkIncrease.addEventListener('click', function(){
       event.preventDefault();
       thisWidget.setValue(thisWidget.value + 1);
     });
