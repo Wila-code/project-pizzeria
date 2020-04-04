@@ -34,9 +34,7 @@
     },
     "globals": {
         "flatpickr": false,
-        "rangeSlider": false
-      },
-      "globals": {
-       "Handlebars": false
+        "rangeSlider": false,
+        "Handlebars": false
     }
 }
