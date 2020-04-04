@@ -1,9 +1,6 @@
 
 
 {
-  "globals": {
-   "Handlebars": false
-},
 
     "env": {
         "browser": true,
@@ -34,7 +31,12 @@
         "no-console": [
             "off"
         ]
+    },
+    "globals": {
+        "flatpickr": false,
+        "rangeSlider": false
+      },
+      "globals": {
+       "Handlebars": false
     }
-    
-
 }
